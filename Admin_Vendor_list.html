@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+
+  table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #4caf50;
+    color: #fff;
+  }
+
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+
+  select {
+    width: 100px;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  .remove {
+    color: #f44336;
+  }
+
+  .active {
+    color: #4caf50;
+  }
+
+  .block {
+    color: #ff9800;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 25px;
+   
+}
+</style>
+<body>
+    <div class="container">
+        <!-- header or nav -->
+        <nav class="header">
+            <div class="logo"><a class="logoLink" href="Admin_Dashboard.html"><img src="logo.png" alt="QuantaRock" class="logoImage"></a>
+            </div>
+                <div class="dropdown"><button class="dropbtn"> Admin <i class="fa-solid fa-caret-down"></i></button>
+                    <div class="dropdown-content"><a href="index.html">Logout</a></div>
+                </div>
+            </div>
+        </nav>
+        <div class="hamburger" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+
+        <aside class="sidebar">
+          <li><a href="Admin_Dashboard.html"><i class="fa-solid fa-gauge"></i>DASHBOARD</a></li>
+          <li><a href="Admin_New_Request.html"><i class="fa-solid fa-plus"></i>NEW REQUEST</a></li>
+          <li><a href="Admin_Vendor_list.html"><i class="fa-solid fa-user-plus"></i>VENDORS LIST</a></li>
+          <li><a href="Admin_KYC.html"><i class="fa-solid fa-handshake"></i>KYC DETAILS</a></li>
+          <li><a href="Admin_Messege.html"><i class="fa-solid fa-message"></i>MESSAGES</a></li>
+          <li><a href="Admin_PRODUCT_LIST.HTML"><i class="fa-solid fa-store"></i>PRODUCTS</a></li>
+      </aside>
+
+        <!-- Your main content here
+        <div id="table">
+            <div class="listItems"><h3>Actions</h3></div>
+             <a href="#"><div class="add-remove"><span>Add Vendor</span><button id="addVendorBtn"><i class="fa-solid fa-plus"></i></button></div></a> -->
+            <!-- <a href="#"><div class="add-remove"><span>Remove/Archieve Existing Vendors</span><button id="addVendorBtn"><i class="fa-solid fa-minus"></i></button></div></a>
+        </div> -->
+        <!--  -->
+
+          <!-- <div id="popupBox" class="popup">
+            <div class="popup-content">
+              <span class="close">&times;</span>
+              <h2>Vendor Registration</h2>
+              <form id="vendorForm">
+                <div class="form-group">
+                  <label class="labelWidth" for="student-name">Company name<span class="mandatory">*</span></label>
+                  <input type="text" id="student-name" placeholder="Enter your company name">
+                </div>
+                <div class="form-group">
+                  <label class="labelWidth" for="father-name">Legal business name<span class="mandatory">*</span></label>
+                  <input type="text" id="father-name" placeholder="Enter your legal business name">
+                </div>
+                <div class="form-group">
+                  <label class="labelWidth" for="mother-name">Website URL<span class="mandatory">*</span></label>
+                  <input type="text" id="mother-name" placeholder="Enter your website url">
+                </div>
+                <div class="form-group">
+                  <label class="labelWidth" for="address">Physical address<span class="mandatory">*</span></label>
+                  <input type="text" id="address" placeholder="Enter your Physical address">
+                </div>
+                <div class="form-group">
+                  <label class="labelWidth" for="mailing-address">Mailing address</label>
+                  <input type="text" id="mailing-address" placeholder="Enter your mailing address">
+                </div>
+                <div class="form-group">
+                  <label class="labelWidth" for="email">Email address<span class="mandatory">*</span></label>
+                  <input type="email" id="email" placeholder="Enter your email address">
+                </div>
+                <div class="form-group">
+                  <label class="labelWidth" for="phone">Phone number<span class="mandatory">*</span></label>
+                  <input type="tel" id="phone" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                  <label class="labelWidth" for="description">Description<span class="mandatory">*</span></label>
+                  <textarea id="description" rows="3" placeholder="Enter your description"></textarea>
+                </div>
+                <p>Note:(*) Required fields</p>
+                <button class="registerBtn rgstrBtn" type="submit" onclick="validateForm()">Register</button>
+              </form>
+            </div>
+          </div>
+        --> 
+
+        <!-- vendor list -->/
+        <div class="main-content">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Vendor Name</th>
+              <th>Address</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Vendor A</td>
+              <td>123 Street, City</td>
+              <td>
+                <select class="remove">
+                  <option value="remove">Remove</option>
+                  <option value="active">Active</option>
+                  <option value="block">Block</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Vendor B</td>
+              <td>456 Avenue, Town</td>
+              <td>
+                <select class="active">
+                  <option value="remove">Remove</option>
+                  <option value="active">Active</option>
+                  <option value="block">Block</option>
+                </select>
+              </td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
